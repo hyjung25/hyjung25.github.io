@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
@@ -41,14 +41,17 @@
       <section class="hero reveal" aria-labelledby="hero-title">
         <div class="hero-copy">
           <p class="eyebrow">Machine Learning · Software · Research</p>
-          <h1 id="hero-title">Hi, I am Hanyoung Jung.</h1>
+          <h1 id="hero-title">
+            <span>Machine Learning Engineer</span>
+            <span>& Researcher</span>
+          </h1>
           <p class="hero-statement">
-            I build machine learning systems that move from research to real-world deployment.
+            Building real-world ML systems across wearable sensing, anomaly detection, and retrieval.
           </p>
           <p class="hero-text">
-            Carnegie Mellon Statistics and Machine Learning student focused on applied AI,
-            backend systems, and research-driven engineering.
+            Carnegie Mellon University · Statistics & Machine Learning
           </p>
+          <p class="hero-meta">Research @ MetaMobility Lab · Previously @ EXEM</p>
           <div class="hero-action-row">
             <div class="hero-actions">
               <a class="button primary" href="#projects">View Projects</a>
@@ -97,159 +100,168 @@
       </section>
 
       <section class="section about-section reveal" id="about" aria-labelledby="about-title">
-        <div class="section-heading">
+        <div class="section-heading compact-heading">
           <p class="eyebrow">About Me</p>
-          <h2 id="about-title">I like practical machine learning with a clear path to use.</h2>
+          <h2 id="about-title">I care about machine learning systems that have to work outside a notebook.</h2>
         </div>
-        <div class="about-grid">
-          <article class="bio-panel">
-            <h3>Bio</h3>
+        <div class="about-editorial">
+          <div class="about-copy">
             <p>
-              I am a Carnegie Mellon undergraduate pursuing a B.S. in Statistics and Machine
-              Learning, interested in building practical ML systems that connect modeling,
-              software, and real-world constraints.
+              My work has focused on models operating under real-world constraints, from detecting
+              perturbations using wearable sensor streams to deploying neural networks on
+              memory-constrained embedded hardware.
             </p>
             <p>
-              Recently, I have worked on multilingual retrieval systems, production log anomaly
-              detection, and wearable sensor research for exoskeleton-related real-time ML.
+              I am especially interested in ML systems, time-series modeling, and applied AI.
             </p>
-          </article>
-          <article class="info-panel">
-            <h3>Interests</h3>
-            <ul class="tag-list">
-              <li>Machine Learning</li>
-              <li>Applied AI</li>
-              <li>ML Systems</li>
-              <li>Human-centered AI</li>
-            </ul>
-          </article>
-          <article class="info-panel">
-            <h3>Skills</h3>
-            <ul class="skill-list">
-              <li><strong>Programming</strong><span>Python · C/C++ · SQL · JavaScript · R</span></li>
-              <li><strong>ML / Data</strong><span>PyTorch · NumPy · pandas · scikit-learn</span></li>
-              <li><strong>Systems / Tools</strong><span>FastAPI · Docker · Git · Qdrant</span></li>
-              <li><strong>Spoken Languages</strong><span>English · Korean · Japanese</span></li>
-            </ul>
-          </article>
+          </div>
+          <div class="skill-strip" aria-label="Technical skills">
+            <span>Python</span>
+            <span>C/C++</span>
+            <span>PyTorch</span>
+            <span>FastAPI</span>
+            <span>Qdrant</span>
+            <span>Docker</span>
+            <span>Git</span>
+          </div>
         </div>
       </section>
 
       <section class="section experience-section reveal" aria-labelledby="experience-title">
-        <div class="section-heading">
+        <div class="section-heading compact-heading">
           <p class="eyebrow">Experience</p>
           <h2 id="experience-title">Research and engineering experience.</h2>
         </div>
-        <div class="timeline">
+        <div class="experience-list">
           <article class="timeline-item">
-            <div>
+            <div class="experience-header">
               <h3>Undergraduate Researcher</h3>
-              <p class="meta">MetaMobility Lab, Carnegie Mellon University · May 2026 - Present</p>
+              <p class="meta">MetaMobility Lab, Carnegie Mellon University</p>
+              <p class="date">May 2026 - Present</p>
             </div>
-            <p>
-              Developing TCN-based models for perturbation detection and center-of-mass velocity
-              estimation using wearable exoskeleton sensor data, with optimization work for Teensy
-              deployment.
-            </p>
+            <ul class="experience-bullets">
+              <li>Developed TCN models for real-time perturbation detection from wearable IMU signals.</li>
+              <li>Built center-of-mass velocity estimation pipelines using motion-capture and exoskeleton sensor data.</li>
+              <li>Optimized neural-network inference for memory-constrained Teensy deployment through quantization and convolution reuse.</li>
+            </ul>
           </article>
           <article class="timeline-item">
-            <div>
+            <div class="experience-header">
               <h3>Machine Learning Research Intern</h3>
-              <p class="meta">EXEM · May 2025 - Aug 2025</p>
+              <p class="meta">EXEM</p>
+              <p class="date">May 2025 - Aug 2025</p>
             </div>
-            <p>
-              Built log anomaly detection models and a multilingual RAG system using Qdrant,
-              semantic retrieval, FastAPI, and React.
-            </p>
+            <ul class="experience-bullets">
+              <li>Implemented production log anomaly detection models using DeepLog, LogBERT, and ensemble approaches.</li>
+              <li>Built a multilingual RAG system with Qdrant vector search, semantic retrieval, FastAPI, and React.</li>
+              <li>Presented technical talks on embeddings, gradient descent, and modern ML architectures to engineering teams.</li>
+            </ul>
           </article>
-          <article class="timeline-item">
-            <div>
+          <article class="timeline-item secondary-experience">
+            <div class="experience-header">
               <h3>Neuroscience Research Intern</h3>
-              <p class="meta">Korean Basic Science Institute · Jul 2022 - Aug 2022</p>
+              <p class="meta">Korean Basic Science Institute</p>
+              <p class="date">Jul 2022 - Aug 2022</p>
             </div>
-            <p>
-              Processed neuroscience experimental data and analyzed molecular patterns related to
-              potential depression biomarkers.
-            </p>
+            <ul class="experience-bullets">
+              <li>Collected and processed experimental neuroscience data from mouse brain tissue and mass spectrometry analyses.</li>
+              <li>Analyzed molecular data to identify potential depression-related biomarkers and biological patterns.</li>
+            </ul>
           </article>
         </div>
       </section>
 
       <section class="section projects-section reveal" id="projects" aria-labelledby="projects-title">
-        <div class="section-heading">
+        <div class="section-heading compact-heading">
           <p class="eyebrow">Projects</p>
           <h2 id="projects-title">Selected technical projects.</h2>
         </div>
-        <div class="project-grid">
-          <article class="project-card">
-            <div class="project-accent"></div>
-            <p class="project-category">Retrieval-Augmented Generation</p>
-            <h3>Multilingual RAG System</h3>
-            <p>
-              Built a multilingual QA system for Gangwon Province tourism information, supporting
-              Korean, English, Japanese, and Chinese queries through semantic retrieval.
-            </p>
-            <ul class="tech-list">
-              <li>Python</li>
-              <li>FastAPI</li>
-              <li>Qdrant</li>
-              <li>React</li>
-              <li>LLM</li>
-            </ul>
-            <a class="project-link" href="https://github.com/hyjung25" target="_blank" rel="noreferrer">
-              GitHub
-            </a>
+        <div class="featured-projects">
+          <article class="featured-project">
+            <div class="project-visual" aria-label="Placeholder for RAG system architecture visual">
+              <span>Architecture visual</span>
+            </div>
+            <div class="project-content">
+              <p class="project-index">01 - Retrieval-Augmented Generation</p>
+              <h3>Multilingual RAG System</h3>
+              <p class="project-lede">
+                Multilingual question-answering system for Gangwon Province tourism information.
+              </p>
+              <p>
+                The system crawled tourism content, built a retrieval corpus, and supported Korean,
+                English, Japanese, and Chinese queries through Qdrant vector search and semantic
+                retrieval.
+              </p>
+              <ul class="tech-list">
+                <li>Python</li>
+                <li>FastAPI</li>
+                <li>Qdrant</li>
+                <li>React</li>
+                <li>LLM</li>
+              </ul>
+              <a class="project-link" href="https://github.com/hyjung25" target="_blank" rel="noreferrer">
+                GitHub
+              </a>
+            </div>
           </article>
-          <article class="project-card">
-            <div class="project-accent green"></div>
-            <p class="project-category">Machine Learning</p>
-            <h3>Log Anomaly Detection</h3>
-            <p>
-              Implemented DeepLog, LogBERT, and ensemble models for production log anomaly
-              detection across 16K+ logs.
-            </p>
-            <ul class="tech-list">
-              <li>PyTorch</li>
-              <li>DeepLog</li>
-              <li>LogBERT</li>
-              <li>Anomaly Detection</li>
-            </ul>
-            <a class="project-link" href="https://github.com/hyjung25" target="_blank" rel="noreferrer">
-              GitHub
-            </a>
+          <article class="featured-project">
+            <div class="project-visual" aria-label="Placeholder for log anomaly detection model visual">
+              <span>Model / results visual</span>
+            </div>
+            <div class="project-content">
+              <p class="project-index">02 - Machine Learning</p>
+              <h3>Log Anomaly Detection</h3>
+              <p class="project-lede">Detecting anomalies across 16K+ production logs.</p>
+              <p>
+                Implemented and compared DeepLog, LogBERT, and ensemble approaches for production
+                log anomaly detection.
+              </p>
+              <ul class="tech-list">
+                <li>PyTorch</li>
+                <li>DeepLog</li>
+                <li>LogBERT</li>
+                <li>Anomaly Detection</li>
+              </ul>
+              <a class="project-link" href="https://github.com/hyjung25" target="_blank" rel="noreferrer">
+                GitHub
+              </a>
+            </div>
           </article>
-          <article class="project-card">
-            <div class="project-accent coral"></div>
-            <p class="project-category">Research · Edge ML</p>
-            <h3>Wearable Sensor ML Pipeline</h3>
-            <p>
-              Research pipeline for exoskeleton and wearable sensor data, including real-time
-              time-series modeling for perturbation detection and CoM velocity estimation.
-            </p>
-            <ul class="tech-list">
-              <li>PyTorch</li>
-              <li>TCN</li>
-              <li>IMU</li>
-              <li>Time Series</li>
-              <li>Edge ML</li>
-            </ul>
-            <a class="project-link" href="https://github.com/hyjung25" target="_blank" rel="noreferrer">
-              GitHub
-            </a>
+          <article class="featured-project">
+            <div class="project-visual" aria-label="Placeholder for wearable ML sensor visual">
+              <span>Sensor / model visual</span>
+            </div>
+            <div class="project-content">
+              <p class="project-index">03 - Research · Edge ML</p>
+              <h3>Wearable Sensor ML Pipeline</h3>
+              <p class="project-lede">
+                Real-time ML for exoskeleton and wearable sensor data.
+              </p>
+              <p>
+                Built pipelines for perturbation detection and center-of-mass velocity estimation
+                using wearable IMU, exoskeleton sensor, and motion-capture data.
+              </p>
+              <ul class="tech-list">
+                <li>PyTorch</li>
+                <li>TCN</li>
+                <li>IMU</li>
+                <li>Time Series</li>
+                <li>Edge ML</li>
+              </ul>
+              <a class="project-link" href="https://github.com/hyjung25" target="_blank" rel="noreferrer">
+                GitHub
+              </a>
+            </div>
           </article>
         </div>
       </section>
 
-      <section class="section contact-section reveal" id="contact" aria-labelledby="contact-title">
-        <div class="section-heading">
-          <p class="eyebrow">Contact</p>
-          <h2 id="contact-title">Let's build something.</h2>
-        </div>
+      <section class="contact-section reveal" id="contact" aria-labelledby="contact-title">
         <div class="contact-panel">
-          <p>
-            I'm currently interested in machine learning, software engineering, and applied research
-            opportunities.
-          </p>
+          <div>
+            <p class="eyebrow">Contact</p>
+            <h2 id="contact-title">Let's connect.</h2>
+          </div>
           <div class="contact-links">
             <a class="button primary" href="mailto:hanyounj@andrew.cmu.edu">Email</a>
             <a class="button secondary" href="https://github.com/hyjung25" target="_blank" rel="noreferrer">GitHub</a>
