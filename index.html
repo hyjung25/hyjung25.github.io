@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Hanyoung Jung's portfolio showcasing machine learning, data, and software projects."
+    />
+    <title>Hanyoung Jung | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="brand" href="#top">Hanyoung Jung</a>
+        <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <div class="nav-links" id="nav-links">
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="Hanyoung_Jung_Resume_260811.pdf" target="_blank" rel="noreferrer">Resume</a>
+          <a href="#contact">Contact</a>
+          <button class="theme-toggle" type="button" aria-label="Toggle dark mode">
+            <span class="theme-icon" aria-hidden="true">◐</span>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero reveal" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">Machine Learning · Software · Research</p>
+          <h1 id="hero-title">Hi, I am Hanyoung Jung.</h1>
+          <p class="hero-statement">
+            I build machine learning systems that move from research to real-world deployment.
+          </p>
+          <p class="hero-text">
+            Carnegie Mellon Statistics and Machine Learning student focused on applied AI,
+            backend systems, and research-driven engineering.
+          </p>
+          <div class="hero-action-row">
+            <div class="hero-actions">
+              <a class="button primary" href="#projects">View Projects</a>
+              <a
+                class="button secondary"
+                href="Hanyoung_Jung_Resume_260811.pdf"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Resume
+              </a>
+            </div>
+            <div class="social-links" aria-label="Social profile links">
+              <a
+                class="icon-link"
+                href="https://github.com/hyjung25"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="GitHub profile"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M12 2C6.48 2 2 6.58 2 12.26c0 4.54 2.87 8.39 6.84 9.75.5.1.68-.22.68-.49v-1.72c-2.78.62-3.37-1.37-3.37-1.37-.45-1.19-1.11-1.5-1.11-1.5-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.9 1.57 2.35 1.12 2.92.86.09-.67.35-1.12.63-1.38-2.22-.26-4.55-1.14-4.55-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05A9.29 9.29 0 0 1 12 7.02c.85 0 1.7.12 2.5.34 1.9-1.33 2.74-1.05 2.74-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.8-4.57 5.06.36.32.68.94.68 1.9v2.79c0 .27.18.6.69.49A10.16 10.16 0 0 0 22 12.26C22 6.58 17.52 2 12 2Z"
+                  />
+                </svg>
+              </a>
+              <a
+                class="icon-link"
+                href="https://www.linkedin.com/in/hanyoung-jung/"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="LinkedIn profile"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5ZM.32 8.03h4.34V23H.32V8.03Zm7.15 0h4.16v2.05h.06c.58-1.1 2-2.26 4.12-2.26 4.4 0 5.21 2.9 5.21 6.67V23h-4.34v-7.55c0-1.8-.03-4.12-2.5-4.12-2.52 0-2.9 1.97-2.9 4V23H7.47V8.03Z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="hero-media" aria-label="Profile image">
+          <img src="assets/profile-placeholder.png" alt="Profile placeholder in a study workspace" />
+        </div>
+      </section>
+
+      <section class="section about-section reveal" id="about" aria-labelledby="about-title">
+        <div class="section-heading">
+          <p class="eyebrow">About Me</p>
+          <h2 id="about-title">I like practical machine learning with a clear path to use.</h2>
+        </div>
+        <div class="about-grid">
+          <article class="bio-panel">
+            <h3>Bio</h3>
+            <p>
+              I am a Carnegie Mellon undergraduate pursuing a B.S. in Statistics and Machine
+              Learning, interested in building practical ML systems that connect modeling,
+              software, and real-world constraints.
+            </p>
+            <p>
+              Recently, I have worked on multilingual retrieval systems, production log anomaly
+              detection, and wearable sensor research for exoskeleton-related real-time ML.
+            </p>
+          </article>
+          <article class="info-panel">
+            <h3>Interests</h3>
+            <ul class="tag-list">
+              <li>Machine Learning</li>
+              <li>Applied AI</li>
+              <li>ML Systems</li>
+              <li>Human-centered AI</li>
+            </ul>
+          </article>
+          <article class="info-panel">
+            <h3>Skills</h3>
+            <ul class="skill-list">
+              <li><strong>Programming</strong><span>Python · C/C++ · SQL · JavaScript · R</span></li>
+              <li><strong>ML / Data</strong><span>PyTorch · NumPy · pandas · scikit-learn</span></li>
+              <li><strong>Systems / Tools</strong><span>FastAPI · Docker · Git · Qdrant</span></li>
+              <li><strong>Spoken Languages</strong><span>English · Korean · Japanese</span></li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section experience-section reveal" aria-labelledby="experience-title">
+        <div class="section-heading">
+          <p class="eyebrow">Experience</p>
+          <h2 id="experience-title">Research and engineering experience.</h2>
+        </div>
+        <div class="timeline">
+          <article class="timeline-item">
+            <div>
+              <h3>Undergraduate Researcher</h3>
+              <p class="meta">MetaMobility Lab, Carnegie Mellon University · May 2026 - Present</p>
+            </div>
+            <p>
+              Developing TCN-based models for perturbation detection and center-of-mass velocity
+              estimation using wearable exoskeleton sensor data, with optimization work for Teensy
+              deployment.
+            </p>
+          </article>
+          <article class="timeline-item">
+            <div>
+              <h3>Machine Learning Research Intern</h3>
+              <p class="meta">EXEM · May 2025 - Aug 2025</p>
+            </div>
+            <p>
+              Built log anomaly detection models and a multilingual RAG system using Qdrant,
+              semantic retrieval, FastAPI, and React.
+            </p>
+          </article>
+          <article class="timeline-item">
+            <div>
+              <h3>Neuroscience Research Intern</h3>
+              <p class="meta">Korean Basic Science Institute · Jul 2022 - Aug 2022</p>
+            </div>
+            <p>
+              Processed neuroscience experimental data and analyzed molecular patterns related to
+              potential depression biomarkers.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section projects-section reveal" id="projects" aria-labelledby="projects-title">
+        <div class="section-heading">
+          <p class="eyebrow">Projects</p>
+          <h2 id="projects-title">Selected technical projects.</h2>
+        </div>
+        <div class="project-grid">
+          <article class="project-card">
+            <div class="project-accent"></div>
+            <p class="project-category">Retrieval-Augmented Generation</p>
+            <h3>Multilingual RAG System</h3>
+            <p>
+              Built a multilingual QA system for Gangwon Province tourism information, supporting
+              Korean, English, Japanese, and Chinese queries through semantic retrieval.
+            </p>
+            <ul class="tech-list">
+              <li>Python</li>
+              <li>FastAPI</li>
+              <li>Qdrant</li>
+              <li>React</li>
+              <li>LLM</li>
+            </ul>
+            <a class="project-link" href="https://github.com/hyjung25" target="_blank" rel="noreferrer">
+              GitHub
+            </a>
+          </article>
+          <article class="project-card">
+            <div class="project-accent green"></div>
+            <p class="project-category">Machine Learning</p>
+            <h3>Log Anomaly Detection</h3>
+            <p>
+              Implemented DeepLog, LogBERT, and ensemble models for production log anomaly
+              detection across 16K+ logs.
+            </p>
+            <ul class="tech-list">
+              <li>PyTorch</li>
+              <li>DeepLog</li>
+              <li>LogBERT</li>
+              <li>Anomaly Detection</li>
+            </ul>
+            <a class="project-link" href="https://github.com/hyjung25" target="_blank" rel="noreferrer">
+              GitHub
+            </a>
+          </article>
+          <article class="project-card">
+            <div class="project-accent coral"></div>
+            <p class="project-category">Research · Edge ML</p>
+            <h3>Wearable Sensor ML Pipeline</h3>
+            <p>
+              Research pipeline for exoskeleton and wearable sensor data, including real-time
+              time-series modeling for perturbation detection and CoM velocity estimation.
+            </p>
+            <ul class="tech-list">
+              <li>PyTorch</li>
+              <li>TCN</li>
+              <li>IMU</li>
+              <li>Time Series</li>
+              <li>Edge ML</li>
+            </ul>
+            <a class="project-link" href="https://github.com/hyjung25" target="_blank" rel="noreferrer">
+              GitHub
+            </a>
+          </article>
+        </div>
+      </section>
+
+      <section class="section contact-section reveal" id="contact" aria-labelledby="contact-title">
+        <div class="section-heading">
+          <p class="eyebrow">Contact</p>
+          <h2 id="contact-title">Let's build something.</h2>
+        </div>
+        <div class="contact-panel">
+          <p>
+            I'm currently interested in machine learning, software engineering, and applied research
+            opportunities.
+          </p>
+          <div class="contact-links">
+            <a class="button primary" href="mailto:hanyounj@andrew.cmu.edu">Email</a>
+            <a class="button secondary" href="https://github.com/hyjung25" target="_blank" rel="noreferrer">GitHub</a>
+            <a
+              class="button secondary"
+              href="https://www.linkedin.com/in/hanyoung-jung/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              LinkedIn
+            </a>
+            <a
+              class="button secondary"
+              href="Hanyoung_Jung_Resume_260811.pdf"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Resume
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© <span id="year"></span> Hanyoung Jung. Built with HTML, CSS, and JavaScript.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
