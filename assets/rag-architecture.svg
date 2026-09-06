@@ -1,57 +1,63 @@
 <svg width="920" height="560" viewBox="0 0 920 560" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
   <title id="title">Gangwon RAG Chatbot architecture</title>
-  <desc id="desc">Architecture diagram showing a Next.js chat frontend, FastAPI backend, preference parsing, FAISS retrieval, reranking, and local LLM response generation.</desc>
+  <desc id="desc">Architecture diagram separating offline data indexing from the live query path for the Gangwon RAG Chatbot.</desc>
   <rect width="920" height="560" rx="24" fill="#F7F4EF"/>
   <rect x="32" y="32" width="856" height="496" rx="20" fill="#FFFFFF" stroke="#DED9D0" stroke-width="2"/>
 
   <text x="64" y="78" fill="#1B1E28" font-family="IBM Plex Sans, Arial, sans-serif" font-size="30" font-weight="700">Gangwon RAG Chatbot</text>
-  <text x="64" y="108" fill="#66707D" font-family="IBM Plex Sans, Arial, sans-serif" font-size="16" font-weight="500">Multilingual tourism and food recommendation pipeline</text>
+  <text x="64" y="108" fill="#66707D" font-family="IBM Plex Sans, Arial, sans-serif" font-size="16" font-weight="500">Offline indexing + live multilingual retrieval pipeline</text>
 
-  <rect x="64" y="152" width="172" height="102" rx="14" fill="#FAF8F4" stroke="#DED9D0" stroke-width="2"/>
-  <text x="88" y="188" fill="#B85042" font-family="IBM Plex Sans, Arial, sans-serif" font-size="14" font-weight="700">FRONTEND</text>
-  <text x="88" y="218" fill="#1B1E28" font-family="IBM Plex Sans, Arial, sans-serif" font-size="22" font-weight="700">Next.js Chat UI</text>
-  <text x="88" y="238" fill="#66707D" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" font-weight="500">Markdown responses</text>
+  <text x="64" y="154" fill="#B85042" font-family="IBM Plex Sans, Arial, sans-serif" font-size="14" font-weight="700">OFFLINE DATA PIPELINE</text>
+  <rect x="64" y="176" width="160" height="88" rx="14" fill="#FAF8F4" stroke="#DED9D0" stroke-width="2"/>
+  <text x="88" y="210" fill="#1B1E28" font-family="IBM Plex Sans, Arial, sans-serif" font-size="20" font-weight="700">Crawled Data</text>
+  <text x="88" y="234" fill="#66707D" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" font-weight="500">Gangwon tourism / food</text>
 
-  <path d="M250 203H315" stroke="#B85042" stroke-width="3" stroke-linecap="round"/>
-  <path d="M315 203L303 196V210L315 203Z" fill="#B85042"/>
+  <path d="M238 220H294" stroke="#B85042" stroke-width="3" stroke-linecap="round"/>
+  <path d="M294 220L282 213V227L294 220Z" fill="#B85042"/>
 
-  <rect x="332" y="152" width="172" height="102" rx="14" fill="#FAF8F4" stroke="#DED9D0" stroke-width="2"/>
-  <text x="356" y="188" fill="#B85042" font-family="IBM Plex Sans, Arial, sans-serif" font-size="14" font-weight="700">API</text>
-  <text x="356" y="218" fill="#1B1E28" font-family="IBM Plex Sans, Arial, sans-serif" font-size="22" font-weight="700">FastAPI</text>
-  <text x="356" y="238" fill="#66707D" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" font-weight="500">POST /chat</text>
+  <rect x="312" y="176" width="174" height="88" rx="14" fill="#FAF8F4" stroke="#DED9D0" stroke-width="2"/>
+  <text x="336" y="210" fill="#1B1E28" font-family="IBM Plex Sans, Arial, sans-serif" font-size="20" font-weight="700">Embeddings</text>
+  <text x="336" y="234" fill="#66707D" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" font-weight="500">Multilingual metadata</text>
 
-  <path d="M518 203H583" stroke="#B85042" stroke-width="3" stroke-linecap="round"/>
-  <path d="M583 203L571 196V210L583 203Z" fill="#B85042"/>
+  <path d="M500 220H556" stroke="#B85042" stroke-width="3" stroke-linecap="round"/>
+  <path d="M556 220L544 213V227L556 220Z" fill="#B85042"/>
 
-  <rect x="600" y="152" width="224" height="102" rx="14" fill="#FAF8F4" stroke="#DED9D0" stroke-width="2"/>
-  <text x="624" y="188" fill="#B85042" font-family="IBM Plex Sans, Arial, sans-serif" font-size="14" font-weight="700">QUERY UNDERSTANDING</text>
-  <text x="624" y="218" fill="#1B1E28" font-family="IBM Plex Sans, Arial, sans-serif" font-size="22" font-weight="700">Preference Parser</text>
-  <text x="624" y="238" fill="#66707D" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" font-weight="500">Region, spicy, vegan signals</text>
+  <rect x="574" y="176" width="218" height="88" rx="14" fill="#FAF8F4" stroke="#DED9D0" stroke-width="2"/>
+  <text x="598" y="210" fill="#1B1E28" font-family="IBM Plex Sans, Arial, sans-serif" font-size="20" font-weight="700">FAISS Index</text>
+  <text x="598" y="234" fill="#66707D" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" font-weight="500">Generated retrieval artifacts</text>
 
-  <path d="M712 268V313" stroke="#B85042" stroke-width="3" stroke-linecap="round"/>
-  <path d="M712 313L705 301H719L712 313Z" fill="#B85042"/>
+  <path d="M683 279V314" stroke="#B85042" stroke-width="3" stroke-linecap="round" stroke-dasharray="6 7"/>
+  <path d="M683 314L676 302H690L683 314Z" fill="#B85042"/>
 
-  <rect x="572" y="330" width="280" height="116" rx="14" fill="#FAF8F4" stroke="#DED9D0" stroke-width="2"/>
-  <text x="596" y="366" fill="#B85042" font-family="IBM Plex Sans, Arial, sans-serif" font-size="14" font-weight="700">GENERATION</text>
-  <text x="596" y="396" fill="#1B1E28" font-family="IBM Plex Sans, Arial, sans-serif" font-size="22" font-weight="700">Local LLM Response</text>
-  <text x="596" y="418" fill="#66707D" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" font-weight="500">skt/A.X-4.0-Light</text>
+  <text x="64" y="326" fill="#B85042" font-family="IBM Plex Sans, Arial, sans-serif" font-size="14" font-weight="700">LIVE QUERY PATH</text>
+  <rect x="64" y="348" width="150" height="94" rx="14" fill="#FAF8F4" stroke="#DED9D0" stroke-width="2"/>
+  <text x="88" y="382" fill="#1B1E28" font-family="IBM Plex Sans, Arial, sans-serif" font-size="20" font-weight="700">User Query</text>
+  <text x="88" y="406" fill="#66707D" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" font-weight="500">KO / EN / JA / ZH</text>
 
-  <path d="M558 388H493" stroke="#B85042" stroke-width="3" stroke-linecap="round"/>
-  <path d="M493 388L505 381V395L493 388Z" fill="#B85042"/>
+  <path d="M228 395H284" stroke="#B85042" stroke-width="3" stroke-linecap="round"/>
+  <path d="M284 395L272 388V402L284 395Z" fill="#B85042"/>
 
-  <rect x="292" y="330" width="186" height="116" rx="14" fill="#FAF8F4" stroke="#DED9D0" stroke-width="2"/>
-  <text x="316" y="366" fill="#B85042" font-family="IBM Plex Sans, Arial, sans-serif" font-size="14" font-weight="700">RETRIEVAL</text>
-  <text x="316" y="396" fill="#1B1E28" font-family="IBM Plex Sans, Arial, sans-serif" font-size="22" font-weight="700">FAISS Search</text>
-  <text x="316" y="418" fill="#66707D" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" font-weight="500">Multilingual vector indexes</text>
+  <rect x="302" y="348" width="142" height="94" rx="14" fill="#FAF8F4" stroke="#DED9D0" stroke-width="2"/>
+  <text x="326" y="382" fill="#1B1E28" font-family="IBM Plex Sans, Arial, sans-serif" font-size="20" font-weight="700">FastAPI</text>
+  <text x="326" y="406" fill="#66707D" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" font-weight="500">POST /chat</text>
 
-  <path d="M278 388H213" stroke="#B85042" stroke-width="3" stroke-linecap="round"/>
-  <path d="M213 388L225 381V395L213 388Z" fill="#B85042"/>
+  <path d="M458 395H514" stroke="#B85042" stroke-width="3" stroke-linecap="round"/>
+  <path d="M514 395L502 388V402L514 395Z" fill="#B85042"/>
 
-  <rect x="64" y="330" width="134" height="116" rx="14" fill="#FAF8F4" stroke="#DED9D0" stroke-width="2"/>
-  <text x="88" y="366" fill="#B85042" font-family="IBM Plex Sans, Arial, sans-serif" font-size="14" font-weight="700">DATA</text>
-  <text x="88" y="396" fill="#1B1E28" font-family="IBM Plex Sans, Arial, sans-serif" font-size="22" font-weight="700">Crawled</text>
-  <text x="88" y="418" fill="#66707D" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" font-weight="500">Gangwon metadata</text>
+  <rect x="532" y="348" width="178" height="94" rx="14" fill="#FAF8F4" stroke="#DED9D0" stroke-width="2"/>
+  <text x="556" y="382" fill="#1B1E28" font-family="IBM Plex Sans, Arial, sans-serif" font-size="20" font-weight="700">Retrieve + Rerank</text>
+  <text x="556" y="406" fill="#66707D" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" font-weight="500">FAISS semantic search</text>
 
-  <rect x="332" y="474" width="244" height="30" rx="15" fill="#F7F4EF" stroke="#DED9D0"/>
-  <text x="362" y="494" fill="#66707D" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" font-weight="700">Korean, English, Japanese, Chinese</text>
+  <path d="M724 395H780" stroke="#B85042" stroke-width="3" stroke-linecap="round"/>
+  <path d="M780 395L768 388V402L780 395Z" fill="#B85042"/>
+
+  <rect x="798" y="348" width="62" height="94" rx="14" fill="#FAF8F4" stroke="#DED9D0" stroke-width="2"/>
+  <text x="816" y="382" fill="#1B1E28" font-family="IBM Plex Sans, Arial, sans-serif" font-size="20" font-weight="700">LLM</text>
+  <text x="810" y="406" fill="#66707D" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" font-weight="500">Answer</text>
+
+  <rect x="64" y="466" width="286" height="38" rx="19" fill="#F7F4EF" stroke="#DED9D0"/>
+  <text x="92" y="490" fill="#66707D" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" font-weight="700">Conversation preferences: region, spicy, vegan</text>
+
+  <rect x="566" y="466" width="294" height="38" rx="19" fill="#F7F4EF" stroke="#DED9D0"/>
+  <text x="596" y="490" fill="#66707D" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" font-weight="700">Local model: skt/A.X-4.0-Light</text>
 </svg>
