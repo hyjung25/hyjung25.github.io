@@ -508,6 +508,11 @@ h3 {
   text-decoration: underline;
 }
 
+.project-link.pending {
+  color: var(--muted);
+  text-decoration: none;
+}
+
 .contact-section {
   padding: 42px 0;
   border-top: 1px solid var(--line);
