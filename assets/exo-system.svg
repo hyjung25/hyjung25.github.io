@@ -1,0 +1,50 @@
+<svg width="920" height="560" viewBox="0 0 920 560" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Wearable sensor ML pipeline</title>
+  <desc id="desc">System diagram showing IMU sensor stream, windowing, TCN model, perturbation detection, center-of-mass velocity estimation, and embedded inference with Teensy quantization.</desc>
+  <rect width="920" height="560" rx="24" fill="#F7F4EF"/>
+  <rect x="46" y="36" width="828" height="488" rx="20" fill="#FFFFFF" stroke="#DED9D0" stroke-width="2"/>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10Z" fill="#B85042"/>
+    </marker>
+  </defs>
+
+  <text x="86" y="86" fill="#1B1E28" font-family="IBM Plex Sans, Arial, sans-serif" font-size="30" font-weight="700">Wearable Sensor ML Pipeline</text>
+  <text x="86" y="116" fill="#66707D" font-family="IBM Plex Sans, Arial, sans-serif" font-size="16" font-weight="500">Exoskeleton sensor data + real-time time-series modeling</text>
+
+  <rect x="324" y="148" width="272" height="66" rx="14" fill="#FAF8F4" stroke="#DED9D0" stroke-width="2"/>
+  <text x="362" y="188" fill="#1B1E28" font-family="IBM Plex Sans, Arial, sans-serif" font-size="21" font-weight="700">IMU / Sensor Stream</text>
+
+  <line x1="460" y1="228" x2="460" y2="264" stroke="#B85042" stroke-width="3" stroke-linecap="round" marker-end="url(#arrow)"/>
+
+  <rect x="324" y="278" width="272" height="66" rx="14" fill="#FAF8F4" stroke="#DED9D0" stroke-width="2"/>
+  <text x="406" y="318" fill="#1B1E28" font-family="IBM Plex Sans, Arial, sans-serif" font-size="21" font-weight="700">Windowing</text>
+
+  <line x1="460" y1="358" x2="460" y2="394" stroke="#B85042" stroke-width="3" stroke-linecap="round" marker-end="url(#arrow)"/>
+
+  <rect x="324" y="408" width="272" height="66" rx="14" fill="#FAF8F4" stroke="#DED9D0" stroke-width="2"/>
+  <text x="409" y="448" fill="#1B1E28" font-family="IBM Plex Sans, Arial, sans-serif" font-size="21" font-weight="700">TCN Model</text>
+
+  <line x1="314" y1="442" x2="236" y2="442" stroke="#B85042" stroke-width="3" stroke-linecap="round" marker-end="url(#arrow)"/>
+  <line x1="606" y1="442" x2="684" y2="442" stroke="#B85042" stroke-width="3" stroke-linecap="round" marker-end="url(#arrow)"/>
+
+  <rect x="86" y="394" width="132" height="96" rx="14" fill="#FAF8F4" stroke="#DED9D0" stroke-width="2"/>
+  <text x="111" y="428" fill="#1B1E28" font-family="IBM Plex Sans, Arial, sans-serif" font-size="18" font-weight="700">Perturbation</text>
+  <text x="116" y="454" fill="#1B1E28" font-family="IBM Plex Sans, Arial, sans-serif" font-size="18" font-weight="700">Detection</text>
+
+  <rect x="702" y="394" width="132" height="96" rx="14" fill="#FAF8F4" stroke="#DED9D0" stroke-width="2"/>
+  <text x="731" y="428" fill="#1B1E28" font-family="IBM Plex Sans, Arial, sans-serif" font-size="18" font-weight="700">CoM Velocity</text>
+  <text x="727" y="454" fill="#1B1E28" font-family="IBM Plex Sans, Arial, sans-serif" font-size="18" font-weight="700">Estimation</text>
+
+  <rect x="86" y="148" width="186" height="82" rx="14" fill="#FAF8F4" stroke="#DED9D0" stroke-width="2"/>
+  <text x="112" y="183" fill="#B85042" font-family="IBM Plex Mono, monospace" font-size="13" font-weight="700">DATA SOURCES</text>
+  <text x="112" y="207" fill="#66707D" font-family="IBM Plex Sans, Arial, sans-serif" font-size="14" font-weight="600">Motion capture</text>
+
+  <rect x="648" y="148" width="186" height="82" rx="14" fill="#FAF8F4" stroke="#DED9D0" stroke-width="2"/>
+  <text x="674" y="183" fill="#B85042" font-family="IBM Plex Mono, monospace" font-size="13" font-weight="700">DEPLOYMENT</text>
+  <text x="674" y="207" fill="#66707D" font-family="IBM Plex Sans, Arial, sans-serif" font-size="14" font-weight="600">Teensy / INT8</text>
+
+  <path d="M648 190H616C596 190 586 202 586 222V262" stroke="#B85042" stroke-width="3" stroke-linecap="round" stroke-dasharray="6 7" marker-end="url(#arrow)"/>
+  <path d="M272 190H304C324 190 334 202 334 222V262" stroke="#B85042" stroke-width="3" stroke-linecap="round" stroke-dasharray="6 7" marker-end="url(#arrow)"/>
+</svg>

@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
@@ -101,7 +101,7 @@
 
       <section class="section about-section reveal" id="about" aria-labelledby="about-title">
         <div class="section-heading compact-heading">
-          <p class="eyebrow">About Me</p>
+          <p class="eyebrow">01 / About</p>
           <h2 id="about-title">I care about machine learning systems that have to work outside a notebook.</h2>
         </div>
         <div class="about-editorial">
@@ -114,6 +114,15 @@
             <p>
               I am especially interested in ML systems, time-series modeling, and applied AI.
             </p>
+          </div>
+          <div class="status-log" aria-label="Status log">
+            <h3>STATUS_LOG</h3>
+            <ul>
+              <li>Statistics & Machine Learning @ Carnegie Mellon</li>
+              <li>Undergraduate Researcher @ MetaMobility Lab</li>
+              <li>Previously ML Research Intern @ EXEM</li>
+              <li>Focused on ML systems, time-series modeling, and applied AI</li>
+            </ul>
           </div>
           <div class="skill-strip" aria-label="Technical skills">
             <span>Python</span>
@@ -129,7 +138,7 @@
 
       <section class="section experience-section reveal" aria-labelledby="experience-title">
         <div class="section-heading compact-heading">
-          <p class="eyebrow">Experience</p>
+          <p class="eyebrow">02 / Experience</p>
           <h2 id="experience-title">Research and engineering experience.</h2>
         </div>
         <div class="experience-list">
@@ -173,12 +182,12 @@
 
       <section class="section projects-section reveal" id="projects" aria-labelledby="projects-title">
         <div class="section-heading compact-heading">
-          <p class="eyebrow">Projects</p>
+          <p class="eyebrow">03 / Selected Work</p>
           <h2 id="projects-title">Selected technical projects.</h2>
         </div>
         <div class="featured-projects">
           <article class="featured-project">
-            <div class="project-visual" aria-label="RAG system architecture visual">
+            <div class="project-visual" data-view-label="System View" aria-label="RAG system architecture visual">
               <img
                 src="assets/rag-architecture.svg"
                 alt="Gangwon RAG Chatbot architecture diagram"
@@ -213,7 +222,7 @@
             </div>
           </article>
           <article class="featured-project">
-            <div class="project-visual" aria-label="Placeholder for log anomaly detection model visual">
+            <div class="project-visual" data-view-label="Model View" aria-label="DeepLog architecture visual">
               <img src="assets/Deeplog.png" alt="DeepLog architecture diagram" />
             </div>
             <div class="project-content">
@@ -241,8 +250,17 @@
             </div>
           </article>
           <article class="featured-project">
-            <div class="project-visual" aria-label="Wearable sensor setup for exoskeleton research">
-              <img src="assets/Exo.png" alt="Wearable sensor setup used for exoskeleton research" />
+            <div class="project-visual exo-visual" data-view-label="Sensor View" aria-label="Wearable sensor system visual">
+              <img
+                class="exo-diagram"
+                src="assets/exo-system.svg"
+                alt="Wearable sensor machine learning pipeline diagram"
+              />
+              <img
+                class="exo-photo"
+                src="assets/Exo.png"
+                alt="Wearable sensor setup used for exoskeleton research"
+              />
             </div>
             <div class="project-content">
               <p class="project-index">03 - Research · Edge ML</p>
@@ -270,7 +288,7 @@
       <section class="contact-section reveal" id="contact" aria-labelledby="contact-title">
         <div class="contact-panel">
           <div>
-            <p class="eyebrow">Contact</p>
+            <p class="eyebrow">04 / Contact</p>
             <h2 id="contact-title">Let's connect.</h2>
           </div>
           <div class="contact-links">
