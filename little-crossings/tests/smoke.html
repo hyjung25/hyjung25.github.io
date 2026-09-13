@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>Game browser smoke test</title>
+<style>body{margin:0}iframe{width:100vw;height:100vh;border:0;display:block}#result{position:fixed;bottom:0;left:0;background:#fff;padding:4px;font:11px monospace}</style>
+<iframe src="../index.html" title="Game"></iframe><output id="result">Running…</output>
+<script>
+const iframe=document.querySelector('iframe');
+iframe.onload=async()=>{
+ const wait=ms=>new Promise(r=>setTimeout(r,ms));const w=iframe.contentWindow,d=w.document;
+ const check=(ok,msg)=>{if(!ok)throw Error(msg)};
+ try {
+  for(let n=0;n<100&&!d.getElementById('loading').hidden;n++)await wait(50);
+  check(d.getElementById('loading').hidden,'Game initialization');
+  check(!!d.querySelector('.health-card'), 'Updated health card loaded');
+  check(d.querySelector('.health-portrait')?.getAttribute('aria-label') === 'Happy chicken', 'Chicken portrait is the current version');
+  check(d.querySelector('.health-drain')?.textContent === '−5/s', 'Current energy rules loaded');
+  d.getElementById('play-button').click();await wait(100);
+  check(d.getElementById('panel').hidden,'Start button');
+  w.dispatchEvent(new w.KeyboardEvent('keydown',{key:'w'}));await wait(160);
+  w.dispatchEvent(new w.KeyboardEvent('keyup',{key:'w'}));await wait(100);
+  check(Number(d.getElementById('score').textContent)>0,'Keyboard movement increments score');
+  d.getElementById('pause-button').click();await wait(100);
+  check(!d.getElementById('panel').hidden&&d.getElementById('panel-title').textContent==='Take a breather.','Pause screen');
+  d.getElementById('play-button').click();await wait(100);
+  check(d.getElementById('panel').hidden,'Resume button');
+  d.getElementById('restart-button').click();await wait(100);
+  check(d.getElementById('score').textContent==='000','Restart score');
+  d.getElementById('mute-button').click();check(d.getElementById('mute-button').textContent==='Sound off','Mute');
+  document.getElementById('result').textContent='PASS: chicken profile, 5/s energy, load, start, movement, pause, resume, restart, mute';
+ }catch(error){document.getElementById('result').textContent='FAIL: '+error.message;}
+};
+</script></html>

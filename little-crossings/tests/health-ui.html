@@ -1,0 +1,33 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>Chicken health portraits</title>
+<link rel="stylesheet" href="../src/style.css">
+<style>body{padding:40px;overflow:auto}.examples{display:flex;gap:20px;flex-wrap:wrap}.health-card{position:relative;top:auto;left:auto}h1{font-size:28px}h2{font-size:14px}pre{margin-top:30px;white-space:pre-wrap}</style>
+<h1>Your little crossing companion</h1><div class="examples"></div><pre id="result">Running…</pre>
+<script type="module">
+import { HealthUI } from '../src/ui/HealthUI.js';
+import { HealthSystem } from '../src/systems/HealthSystem.js';
+const checks=[];
+function check(ok,message){if(!ok)throw Error(message);checks.push(message);}
+function create(label,current,stateName){
+ const host=document.createElement('section');host.innerHTML=`<h2>${label}</h2>`;document.querySelector('.examples').appendChild(host);
+ const health={current,maximum:100,isSubmerged:false};const state={state:stateName,score:0,endGame(){this.state='gameover';}};
+ const player={getComponent:()=>health};const ui=new HealthUI(state);ui.setPlayer(player);ui.initialize();host.appendChild(ui.element);return{health,state,player,ui};
+}
+try{
+ const happy=create('FULL ENERGY',100,'playing');
+ check(happy.ui.element.dataset.mood==='happy','Full health shows happy chicken');
+ const system=new HealthSystem(null,happy.state);system.setPlayer(happy.player);system.update(10000);
+ check(Math.abs(happy.health.current-50)<0.001,'Starting drain is 5 health/second');
+ happy.health.current=100;happy.ui.render();
+ const sad=create('50% · NEEDS A PICK-ME-UP',50,'playing');
+ check(sad.ui.element.dataset.mood==='sad','Exactly half health shows droopy chicken');
+ sad.health.current=50.1;sad.ui.render();check(sad.ui.element.dataset.mood==='happy','Healing above half restores happy face');
+ sad.health.current=50;sad.ui.render();
+ const dead=create('GAME OVER · REST IN PEEPS',100,'gameover');
+ check(dead.ui.element.dataset.mood==='dead'&&dead.ui.value.textContent==='0','Collision death shows skull even with health remaining');
+ check(getComputedStyle(dead.ui.element.querySelector('.chicken-face')).display==='none','Chicken disappears on death');
+ check(getComputedStyle(dead.ui.element.querySelector('.skull-face')).display!=='none','Cute skull is visible');
+ dead.state.state='playing';dead.ui.render();check(dead.ui.element.dataset.mood==='happy','Restart restores chicken');
+ dead.health.current=0;dead.ui.render();check(dead.ui.element.dataset.mood==='dead','Zero energy also shows skull');
+ document.getElementById('result').textContent='PASS: '+checks.length+' checks\n'+checks.join('\n');
+}catch(error){document.getElementById('result').textContent='FAIL: '+error.stack;}
+</script></html>

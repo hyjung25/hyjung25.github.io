@@ -1,0 +1,22 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>Impact UI lifecycle test</title>
+<pre id="result">Running…</pre>
+<section id="panel"><h1 id="panel-title"></h1><p id="panel-description"></p><button id="play-button"></button></section>
+<span id="score"></span><button id="pause-button"></button><button id="mute-button"></button><button id="restart-button"></button>
+<script type="module">
+import { GameStateManager } from '../src/game/GameStateManager.js';
+import { GameUI } from '../src/ui/GameUI.js';
+const state = new GameStateManager();
+const ui = new GameUI(state);
+const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
+const check = (ok, label) => { if (!ok) throw Error(label); };
+try {
+ state.startGame(); state.notifyCallbacks('onImpact', {}); state.endGame();
+ check(ui.panel.hidden, 'Game-over panel must leave impact visible');
+ await wait(500); check(!ui.panel.hidden, 'Game-over panel appears after impact');
+ state.restartGame(); state.notifyCallbacks('onImpact', {}); state.endGame();
+ state.restartGame(); await wait(500);
+ check(ui.panel.hidden && state.state === 'playing', 'Restart cancels delayed game-over panel');
+ state.endGame(); check(!ui.panel.hidden, 'Non-impact game over has no delay');
+ document.getElementById('result').textContent = 'PASS: impact delay, game-over display, immediate restart, non-impact death';
+} catch (error) { document.getElementById('result').textContent = 'FAIL: ' + error.message; }
+</script></html>

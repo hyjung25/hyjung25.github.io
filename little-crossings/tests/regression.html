@@ -1,0 +1,7 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>Game regression tests</title>
+<script type="importmap">{"imports":{"three":"../vendor/three/three.module.js"}}</script>
+<pre id="result">Running…</pre><script type="module">
+import { runTests } from './regression.js';
+try { const results=runTests(); document.getElementById('result').textContent=`PASS: ${results.length} checks\n`+results.filter(x=>!x.startsWith('Safe grass in')).join('\n'); }
+catch(error) { document.getElementById('result').textContent='FAIL: '+error.stack; }
+</script></html>

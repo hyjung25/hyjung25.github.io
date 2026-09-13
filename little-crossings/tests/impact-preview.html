@@ -1,0 +1,22 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>Impact visual fixture</title>
+<style>body{margin:0}canvas{display:block}</style><canvas id="game-canvas"></canvas>
+<script type="importmap">{"imports":{"three":"../vendor/three/three.module.js"}}</script>
+<script type="module">
+import * as THREE from 'three';
+import { SceneSetup } from '../src/rendering/SceneSetup.js';
+import { CameraController } from '../src/rendering/CameraController.js';
+import { GeometryFactory } from '../src/rendering/GeometryFactory.js';
+import { MaterialLibrary } from '../src/rendering/MaterialLibrary.js';
+import { TileFactory } from '../src/world/TileFactory.js';
+import { ImpactEffects } from '../src/rendering/ImpactEffects.js';
+const {scene, renderer} = new SceneSetup().initialize(document.querySelector('canvas'));
+const camera = new CameraController();camera.initialize();camera.reset(new THREE.Vector3(0,0,-2));
+const geometry = new GeometryFactory(), materials = new MaterialLibrary();
+const tiles = new TileFactory(geometry, materials);
+for(let z=-10;z<15;z++) scene.add(tiles.createTile(z===0?'road':'grass',new THREE.Vector2(0,z)).mesh);
+const player = geometry.createModel('player',materials);player.position.set(0,.42,0);scene.add(player);
+const car = geometry.createModel('car',materials);car.position.set(-1,.35,0);scene.add(car);
+const effects = new ImpactEffects(scene);effects.trigger(player.position,new THREE.Vector3(3,0,0));
+for(let i=0;i<10;i++) { camera.placeCamera();effects.update(16.67,camera.getCamera(),player); }
+renderer.render(scene,camera.getCamera());
+</script></html>

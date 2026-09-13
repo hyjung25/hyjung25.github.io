@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Little Crossings · A tiny road adventure</title>
+    <link rel="stylesheet" href="src/style.css">
+    <script type="importmap">{"imports":{"three":"./vendor/three/three.module.js"}}</script>
+</head>
+<body>
+    <canvas id="game-canvas" aria-label="Isometric road crossing game"></canvas>
+    <header class="topbar">
+        <div class="brand"><span class="brand-icon">↟</span><div>LITTLE CROSSINGS<small>A tiny road adventure</small></div></div>
+        <nav aria-label="Game controls">
+            <button id="mute-button" aria-pressed="false">Sound on</button>
+            <button id="pause-button">Pause</button>
+            <button id="restart-button">Restart</button>
+        </nav>
+    </header>
+    <div class="score-card"><span>CROSSINGS</span><strong id="score">000</strong></div>
+    <section id="panel" class="panel" aria-labelledby="panel-title">
+        <span class="eyebrow">SMALL STEPS. BIG ADVENTURE.</span>
+        <h1 id="panel-title">One more crossing.</h1>
+        <p id="panel-description">Dodge the traffic. Ride the logs. See how far your little chicken can go.</p>
+        <button id="play-button" class="primary">Let’s cross →</button>
+        <div class="panel-hint">WASD / Arrow keys to hop · Hold to keep moving</div>
+        <div class="legend"><span>🚗 Avoid traffic</span><span>🪵 Ride platforms</span><span>✚ Find health</span></div>
+    </section>
+    <div id="loading" role="status">Preparing your crossing…</div>
+    <footer><span><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> or arrows to hop</span><span><kbd>Space</kbd> pause <kbd>R</kbd> restart <kbd>M</kbd> sound</span></footer>
+    <div class="touch-controls" aria-label="Movement controls">
+        <button data-move="w" aria-label="Move forward">↑</button>
+        <div><button data-move="a" aria-label="Move left">←</button><button data-move="s" aria-label="Move backward">↓</button><button data-move="d" aria-label="Move right">→</button></div>
+    </div>
+    <script type="module">
+        import('./src/main.js').catch(() => {
+            document.getElementById('loading').textContent = 'Could not load the game. Check your connection and reload.';
+        });
+    </script>
+</body>
+</html>

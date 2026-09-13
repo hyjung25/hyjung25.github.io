@@ -1,0 +1,53 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>Input, energy and sound checks</title>
+<script type="importmap">{"imports":{"three":"../vendor/three/three.module.js"}}</script><pre id="result">Running…</pre>
+<script type="module">
+import { InputSystem } from '../src/systems/InputSystem.js';
+import { HealthSystem } from '../src/systems/HealthSystem.js';
+import { HealthComponent } from '../src/ecs/components/HealthComponent.js';
+import { TransformComponent } from '../src/ecs/components/TransformComponent.js';
+import { GameStateManager } from '../src/game/GameStateManager.js';
+import { SoundSystem } from '../src/systems/SoundSystem.js';
+const results=[];const check=(ok,msg)=>{if(!ok)throw Error(msg);results.push(msg);};
+try {
+ const state=new GameStateManager(),health=new HealthComponent(),transform=new TransformComponent();
+ const player={getComponent:name=>name==='health'?health:transform};
+ const input=new InputSystem(null,state);input.setPlayer(player);input.initialize();
+ for(const [code,key,axis,sign] of [['KeyW','ㅈ','z',1],['KeyS','ㄴ','z',-1],['KeyA','ㅁ','x',1],['KeyD','ㅇ','x',-1]]){
+  input.reset();transform.position.set(0,.42,0);transform.gridPosition.set(0,0);
+  window.dispatchEvent(new KeyboardEvent('keydown',{code,key}));input.update(17);
+  check(transform.position[axis]===sign,code+' works with Korean input');
+  window.dispatchEvent(new KeyboardEvent('keyup',{code,key}));check(input.keyStates.size===0,code+' releases correctly');
+ }
+ window.dispatchEvent(new KeyboardEvent('keydown',{code:'KeyM',key:'ㅡ'}));check(state.isMuted,'Korean M mutes');
+ window.dispatchEvent(new KeyboardEvent('keydown',{code:'KeyM',key:'ㅡ',repeat:true}));check(state.isMuted,'Repeated M does not toggle repeatedly');
+ window.dispatchEvent(new KeyboardEvent('keydown',{code:'KeyM',key:'ㅡ'}));check(!state.isMuted,'Korean M unmutes');
+ const system=new HealthSystem(null,state);system.setPlayer(player);state.score=100;
+ system.update(1000);check(health.current===95,'Base drain is exactly 5/s even at high score');
+ for(const rate of [10,20,40]){
+  system.applyWaterFallDamage();health.current=100;health.isSubmerged=false;system.update(1000);
+  check(health.current===100-rate && health.drainRate===rate,'Water fall sets persistent '+rate+'/s drain');
+ }
+ const offline=new OfflineAudioContext(1,48000*2,48000);
+ const sound=new SoundSystem(state);
+ // OfflineAudioContext is suspended until rendering. Adapt only the live-state
+ // guard so production synthesis can be scheduled before offline rendering.
+ sound.context=new Proxy(offline,{get(target,key){
+  if(key==='state')return 'running';
+  const value=Reflect.get(target,key,target);return typeof value==='function'?value.bind(target):value;
+ }});
+ sound.master=offline.createGain();sound.master.connect(offline.destination);
+ sound.playDeath();
+ check(sound.voices.size===3,'Death schedules three cluck syllables');
+ const buffer=await offline.startRendering();let peak=0;for(const sample of buffer.getChannelData(0))peak=Math.max(peak,Math.abs(sample));
+ check(peak>0.01,'Death clucks render non-silent audio');
+ const mutedContext=new OfflineAudioContext(1,48000,48000), mutedState=new GameStateManager();
+ const mutedSound=new SoundSystem(mutedState);
+ mutedSound.context=new Proxy(mutedContext,{get(target,key){if(key==='state')return 'running';const value=Reflect.get(target,key,target);return typeof value==='function'?value.bind(target):value;}});
+ mutedSound.master=mutedContext.createGain();mutedSound.master.connect(mutedContext.destination);
+ mutedSound.playDeath();mutedState.toggleMute();
+ check(mutedSound.voices.size===0,'Mute stops all active and scheduled clucks');
+ const silent=await mutedContext.startRendering();
+ check(silent.getChannelData(0).every(sample=>Math.abs(sample)<0.00001),'Muted death audio renders silence');
+ document.getElementById('result').textContent='PASS: '+results.length+' checks\n'+results.join('\n');
+}catch(error){document.getElementById('result').textContent='FAIL: '+error.stack;}
+</script></html>
