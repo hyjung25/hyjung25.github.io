@@ -14,17 +14,7 @@ submitting.
 ```
 
 ```text
-이러면 안되는데 처음부터 싹다 수정해봐
-```
-
-The prompt above included a screenshot of the first broken 3D version.
-
-```text
 오른쪽 arrow 누르면 왼쪽으로 가고 왼쪽 누르면 오른쪽으로 가. 그거 고쳐봐. 그리고 차에 부딪치면 이펙트도 만들어줘
-```
-
-```text
-새로고침이 아니라 그거를 다시 열어야 확인이 되지
 ```
 
 ```text
@@ -37,14 +27,6 @@ The prompt above included a screenshot of the first broken 3D version.
 
 ```text
 wasd 안되고 있고. 에너지 감소량은 초당 2에서 초당 5로하자. 그러고 물 빠질때마다 초당 두배로 바꾸고. 사운드 m 버튼도 안되고 있고 사운드에 닭 죽으면 꼬꼬닭\~ 소리 내자. 
-```
-
-```text
-그 게임 서버 다시켜야 적용된다. 다시 켜
-```
-
-```text
-프로필 안바꼈잖아. 이거 맞아? 뒤질래
 ```
 
 The prompt above included a screenshot showing the old smile-face profile still
