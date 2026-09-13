@@ -2,9 +2,7 @@
 
 ## Game description
 
-TODO: Write 1-2 sentences in your own words explaining what this game is and how
-it differs from stock Crossy Road. The assignment says this part should not be
-AI-written.
+TODO: I created a variant version of Crossy Road, where the main object is same (to cross the road and get the high score). Some of the similarities are synthesized sound effects, including a chicken death sound, randomized tree placement with a connected walking route, water splash/sinking motion when the player falls in. However, the key difference is that my game has a health packs that appear in random reachable spots. Health starts decreasing at 5 per second, and each new fall into water doubles the drain rate for that run. The health bar shows a chicken profile that changes from happy to droopy when health gets low, then becomes a cute skull on death. Press R to restart, M to toggle sound, and use WASD or arrow keys to move.
 
 ## How to play
 
