@@ -1,6 +1,6 @@
 # Prompt Log
 
-AI model/tool used: OpenAI Codex in ChatGPT, plus terminal commands and browser
+AI model/tool used: Claude Sonnet 4.5, OpenAI Codex in ChatGPT, plus terminal commands and browser
 testing tools.
 
 This log includes the important non-trivial prompts available from the finishing
@@ -8,6 +8,72 @@ session. Add any earlier in-class prompts that are not shown here before
 submitting.
 
 ## Important prompts
+
+---
+
+## Prompts from Claude Sonnet 4.5
+
+```text
+I want to build a crossy road.
+```
+
+```text
+Im thinking of a web browser game. the primary goal for this project is b and d. and i have no existing codebase yet its a new prject
+```
+
+```text
+1. C, 2. B, 3. either A or B but not really sure yet
+```
+
+```text
+1. a, 2. a, 3. d
+```
+
+```text
+1. d maybe like when u get in water, ur character's hp goes down. and on the bottom corner, we have character's face and a circular bar around the face indicating the health of the character. Also I want it so that this health slowly goes down as the time flows and as the character moves and the amount of hp decrease relate to time or score of the current session. Also every once a while there is a health pack that heals u. but if u hit the car or train u instantly die. 2. b, 3. score based
+```
+
+```text
+1. d. but time drain should be scaling with score, movement costs are constant no scaling, and also not too much, and aim for three water falls = death, and also lets do such that the more we fall in water, movement cost increase
+```
+
+```text
+1. a, 2. a, 3. d
+```
+
+```text
+now based on our plan, create it.
+```
+
+```text
+A
+```
+
+```text
+Create the design for crossy-road-web-game
+```
+
+```text
+start implementation
+```
+
+```text
+its not running. i cant open the website
+```
+
+```text
+its like white blank page.
+```
+
+```text
+both of them worked three.js version is 160
+```
+
+```text
+it said game starting and nothing happens
+```
+
+# Prompts from Codex
 
 ```text
 지금 15113 폴더 확인해봐. 게임 만들었는데 너무 느린거 같아
@@ -40,7 +106,3 @@ appearing in the browser.
 이동 경로도 맞아야지. 어느정도는. 아예 막으면 문제긴 하겠지만/
 ```
 
-The final assignment-requirements prompt was provided as screenshots. It asked
-for a static browser game that works on GitHub Pages, a project README in the
-game folder, a prompt log with verbatim important prompts, a portfolio project
-entry and a form submission with links.
